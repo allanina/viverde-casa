@@ -1,0 +1,20 @@
+header {
+    position: relative;
+    background-color: #d1d1d1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 42px;
+    
+}
+
+.logo {
+    
+    width: 76px;
+    height: 76px;
+    padding: 10px 10px;
+}
+    
+.logoNav {
+    margin: 0 auto;
+}
