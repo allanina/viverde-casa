@@ -30,8 +30,6 @@ html {
   padding: 10px 0px;
 }
 
-/*-----------------FORM--------------*/
-
 #form-container {
   width: 45%;
   max-width: 1000px;
@@ -73,7 +71,6 @@ h1 {
   width: 100%;
 }
 
-/*-------INPUT----------*/
 input[type="text"],
 input[type="date"],
 input[type="email"],
@@ -110,7 +107,6 @@ input[type="number"],
   width: 90%;
 }
 
-/*-------CHECKBOX-----------*/
 .horarios input[type="checkbox"],
 .financeiro-servico input[type="checkbox"],
 .port-deficiencia input[type="checkbox"] {
@@ -135,20 +131,15 @@ input[type="radio"]:checked + label {
   border-color: #008037;
 }
 
-/* ------------RÁDIO---------- */
 input[type="radio"] {
   display: none;
 }
 
-/* Estilo para quando o input de rádio está marcado */
 input[type="radio"]:checked + label {
   background-color: #008037;
   color: #fff;
   border-color: #008037;
 }
-*/
-
-/*----------------------SERVIÇOS------------------*/
 .dropdown-check-list {
   display: inline-block;
   margin-bottom: 30px;

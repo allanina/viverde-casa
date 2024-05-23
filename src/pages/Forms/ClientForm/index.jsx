@@ -9,11 +9,11 @@ import * as Yup from "yup";
 import HeaderForm from '../../../components/HeaderForm';
 import Footer from '../../../components/Footer'
 
-/* TEMOS 6 BUGS DE ARREY BUGAD */
+
 
 function ClientForm() {
   const [isCheckListVisible, setCheckListVisible] = useState(false);
-  //deixar visível a esteira de serviços
+
   const toggleCheckList = () => {
     setCheckListVisible(!isCheckListVisible);
   };
@@ -76,13 +76,13 @@ function ClientForm() {
       .max(20, "Número máximo de 20 caracteres."),
     servicos: Yup.array("Selecione, no mínimo, uma opção.")
     .min(1).of(Yup.string().required())
-    .required("Selecione, no mínimo, uma opção."), /* BUGADO */
+    .required("Selecione, no mínimo, uma opção."), 
     textbox: Yup.string()
       .min(2, "Número mínimo de 10 caracteres.")
       .max(2500, "Número máximo de excedido caracteres."),
     agendamento: Yup.array()
     .min(1).of(Yup.string().required())
-    .required("Selecione, no mínimo, uma opção."), /*Arrumar Mensagem */
+    .required("Selecione, no mínimo, uma opção."), 
     agendamentoFimDeSemana: Yup.string()
       .required("Selecione uma opção."),
     dataServico: Yup.array("Selecione, no mínimo, uma opção.")
@@ -90,7 +90,7 @@ function ClientForm() {
     .required("Selecione, no mínimo, uma opção."),
     indicacao: Yup.array("Selecione, no mínimo, uma opção.")
     .min(1).of(Yup.string().required())
-    .required("Selecione, no mínimo, uma opção."), /* BUGADO */
+    .required("Selecione, no mínimo, uma opção."), 
     codigoIndicacao: Yup.string()
       .min(2, "Número mínimo de 2 caracteres.")
       .max(50, "Número máximo de 20 caracteres."),
@@ -557,8 +557,8 @@ function ClientForm() {
         <section className='termoUso'>
             <h1>Política de Privacidade</h1>
             <div className='box-line'></div>
-            <a href="https://drive.google.com/drive/folders/1dR4AAgwrhY0Znqs-TDwCzoKYNDyU52Ip" target="_blank">Política de Privacidade</a>
-            <a href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing" target="_blank">Termo de Privacidade</a>
+            <a href="https://drive.google.com/drive/folders/1dR4AAgwrhY0Znqs-TDwCzoKYNDyU52Ip" target="_blank" rel="noreferrer">Política de Privacidade</a>
+            <a href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing" target="_blank" rel="noreferrer">Termo de Privacidade</a>
             <p>
                  Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa.
             </p>

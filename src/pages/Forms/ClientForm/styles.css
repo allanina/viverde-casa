@@ -41,14 +41,10 @@ h3 {
   font-size: 18px;
 }
 
-/* TELEFONES */
-
 #client-form-container .telefone {
   display: flex;
   flex-direction: row;
 }
-
-/* DROPDOWN */
 
 #client-form-container .dropdown-check-list {
   display: inline-block;
@@ -108,8 +104,6 @@ h3 {
   border-radius: 0px 0px 17px 17px;
 }
 
-/* INPUTS - RADIO */
-
 #client-form-container input[type="radio"] {
   display: none;
 }
@@ -119,8 +113,6 @@ h3 {
   color: #fff;
   border-color: #008037;
 }
-
-/* INDICAÇÃO VIVERDE CASA */
 
 #indicacao input[type="checkbox"] {
   display: none;
@@ -133,7 +125,7 @@ h3 {
 }
 
 #indicacao input[type="checkbox"] + label:before {
-  content: ""; /* Removendo o conteúdo antes */
+  content: "";
   font-size: 1.2em;
   color: #008037;
   display: inline-block;
@@ -148,7 +140,7 @@ h3 {
 }
 
 #indicacao input[type="checkbox"]:checked + label:before {
-  content: "\2714"; /* Adicionando o conteúdo (símbolo de marca de seleção) se o checkbox estiver marcado */
+  content: "\2714";
   background-color: #008037;
   color: #fff;
 }
@@ -159,7 +151,6 @@ h3 {
 #agendamento input[type="checkbox"] {
   display: none;
 }
-/*DATA DO SERVIÇO*/
 
 .data-servico input[type="checkbox"] {
   display: none;
@@ -192,8 +183,6 @@ h3 {
   color: #fff;
 }
 
-/*TEXTBOX*/
-
 #client-form-container textarea {
   width: 100%;
   height: 70px;
@@ -206,8 +195,6 @@ h3 {
   margin-top: 5px;
   resize: none;
 }
-
-/* BOTÃO DE ENVIO */
 
 #client-form-container .button {
   width: 100px;

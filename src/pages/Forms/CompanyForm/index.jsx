@@ -7,16 +7,17 @@ import { useState } from 'react';
 import HeaderForm from '../../../components/HeaderForm';
 import Footer from '../../../components/Footer'
 
-/* Dados da empresa */ /*Não ta pengando os dados nem o botão de enviar*/ 
 
-//React hook form import
+
+
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 
 export default function CompanyForm() {
     const [isCheckListVisible, setCheckListVisible] = useState(false);
-    //deixa visivel a checkbox
+   
 
     const toggleCheckList = () => {  
      setCheckListVisible(!isCheckListVisible);
@@ -541,8 +542,8 @@ export default function CompanyForm() {
         <section className='termoUso'>
             <h1>Política de Privacidade</h1>
             <div className='box-line'></div>
-            <a href="https://drive.google.com/drive/folders/1dR4AAgwrhY0Znqs-TDwCzoKYNDyU52Ip" target="_blank">Política de Privacidade</a>
-            <a href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing" target="_blank">Termo de Privacidade</a>
+            <a href="https://drive.google.com/drive/folders/1dR4AAgwrhY0Znqs-TDwCzoKYNDyU52Ip" target="_blank" rel="noreferrer">Política de Privacidade</a>
+            <a href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing" target="_blank" rel="noreferrer">Termo de Privacidade</a>
             <p>
                  Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa.
             </p>
