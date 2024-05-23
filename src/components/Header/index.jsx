@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 //componente de header/area de contrate/trabalhe
 import { useState } from "react";
 import "./styles.css";
