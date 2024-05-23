@@ -1,5 +1,4 @@
 //componente de header/area de contrate/trabalhe
-import Button from "../../components/Button";
 import { useState } from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
