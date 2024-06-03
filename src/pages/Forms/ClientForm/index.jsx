@@ -75,29 +75,32 @@ function ClientForm() {
       .min(2, "Número mínimo de 2 caracteres.")
       .max(20, "Número máximo de 20 caracteres."),
     servicos: Yup.array("Selecione, no mínimo, uma opção.")
-    .min(1).of(Yup.string().required())
+    .min(1, "Selecione, no mínimo, uma opção.").of(Yup.string().required("Selecione, no mínimo, uma opção."))
     .required("Selecione, no mínimo, uma opção."), 
     textbox: Yup.string()
       .min(2, "Número mínimo de 10 caracteres.")
       .max(2500, "Número máximo de excedido caracteres."),
     agendamento: Yup.array()
-    .min(1).of(Yup.string().required())
+    .min(1, "Selecione, no mínimo, uma opção." ).of(Yup.string().required("Selecione, no mínimo, uma opção."))
     .required("Selecione, no mínimo, uma opção."), 
     agendamentoFimDeSemana: Yup.string()
       .required("Selecione uma opção."),
     dataServico: Yup.array("Selecione, no mínimo, uma opção.")
-    .min(1).of(Yup.string().required())
+    .min(1, "Selecione, no mínimo, uma opção.").of(Yup.string().required("Selecione, no mínimo, uma opção."))
+    .required("Selecione, no mínimo, uma opção."),
+    prioridade: Yup.array("Selecione, no mínimo, uma opção.")
+    .min(1, "Selecione, no mínimo, uma opção.").of(Yup.string().required("Selecione, no mínimo, uma opção."))
     .required("Selecione, no mínimo, uma opção."),
     indicacao: Yup.array("Selecione, no mínimo, uma opção.")
-    .min(1).of(Yup.string().required())
+    .min(1, "Selecione, no mínimo, uma opção.").of(Yup.string().required("Selecione, no mínimo, uma opção."))
     .required("Selecione, no mínimo, uma opção."), 
     codigoIndicacao: Yup.string()
       .min(2, "Número mínimo de 2 caracteres.")
       .max(50, "Número máximo de 20 caracteres."),
-      PoliticaPrivacidade: Yup.string()
-        .required("Campo obrigatório"),
+      PoliticaPrivacidade: Yup.bool().oneOf([true], "Você precisa aceitar os termos e condições."),
 
   });
+
 
   const formik = useFormik({
     validationSchema: workerSchema,
@@ -128,11 +131,13 @@ function ClientForm() {
             agendamento: [],
             agendamentoFimDeSemana: '',
             dataServico: [],
+            prioridade: [],
             indicacao: [],
             codigoIndicacao: '',
-            PoliticaPrivacidade:'',
+            PoliticaPrivacidade: false,
 
           },
+
 
           onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
@@ -140,8 +145,10 @@ function ClientForm() {
           }
   });
 
+ 
+
   const { 
-    register, 
+        register, 
     } = useForm({
   });
 
@@ -478,27 +485,27 @@ function ClientForm() {
 
             <ul className="items">
               <li>
-                <input type="checkbox" id="pagamentoFacilitado" value="pagamentoFacilitado" {...register("servicos")} onChange={formik.handleChange} />
+                <input type="checkbox" id="pagamentoFacilitado" value="pagamentoFacilitado" {...register("prioridade")} onChange={formik.handleChange} />
                 <LabelServ  id="pagamentoFacilitado" label="Pagamento facilitado" />
               </li>
               <li>
-                <input type="checkbox" id="obraEspecializada" value="obraEspecializada" {...register("servicos")} onChange={formik.handleChange} />
+                <input type="checkbox" id="obraEspecializada" value="obraEspecializada" {...register("prioridade")} onChange={formik.handleChange} />
                 <LabelServ  id="obraEspecializada" label="Mão de obra especializada" />
               </li>
               <li>
-                <input type="checkbox" id="obraFeminina" value="obraFeminina" {...register("servicos")} onChange={formik.handleChange} />
+                <input type="checkbox" id="obraFeminina" value="obraFeminina" {...register("prioridade")} onChange={formik.handleChange} />
                 <LabelServ  id="obraFeminina" label="Mão de obra feminina" />
               </li>
               <li>
-                <input type="checkbox" id="qualidadeAcabamento" value="qualidadeAcabamento" {...register("servicos")} onChange={formik.handleChange} />
+                <input type="checkbox" id="qualidadeAcabamento" value="qualidadeAcabamento" {...register("prioridade")} onChange={formik.handleChange} />
                 <LabelServ  id="qualidadeAcabamento" label="Qualidade no acabamento" />
               </li>
               <li>
-                <input type="checkbox" id="melhorPreco" value="melhorPreco" {...register("servicos")} onChange={formik.handleChange} />
+                <input type="checkbox" id="melhorPreco" value="melhorPreco" {...register("prioridade")} onChange={formik.handleChange} />
                 <LabelServ  id="melhorPreco" label="Melhor preço" />
               </li>
             </ul>
-            <p className="error-message">{formik.errors.servicos}</p>
+            <p className="error-message">{formik.errors.prioridade}</p>
           </div>
         </section>
 
@@ -559,22 +566,18 @@ function ClientForm() {
             <div className='box-line'></div>
             <a href="https://drive.google.com/drive/folders/1dR4AAgwrhY0Znqs-TDwCzoKYNDyU52Ip" target="_blank" rel="noreferrer">Política de Privacidade</a>
             <a href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing" target="_blank" rel="noreferrer">Termo de Privacidade</a>
-            <p>
-                 Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa.
-            </p>
+
 
             <div className="Termo-sim-nao">
-    
-                <input id="TermoSim" {...register("PoliticaPrivacidade")}
-                type="radio" value="Sim" onChange={formik.handleChange} />
-                <LabelCheck id="TermoSim" label="Sim"/>
-
-                <input id="TermoNão" {...register("PoliticaPrivacidade")} 
-                        type="radio" value=" Não" onChange={formik.handleChange} />
-                        <LabelCheck id="TermoNão" label="Não"/>
-                    <p className="error-message">{formik.errors.PoliticaPrivacidade}</p>
-
-            </div>
+            <Label id="PoliticaPrivacidade" label="Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa." />
+          <input
+              id="PoliticaPrivacidade"
+              {...register("PoliticaPrivacidade")}
+              type="checkbox"
+              onChange={formik.handleChange}
+            />
+            <p className="error-message">{formik.errors.PoliticaPrivacidade}</p>
+          </div>
             </section> 
 
 

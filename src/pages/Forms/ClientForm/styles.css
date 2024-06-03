@@ -225,6 +225,13 @@ h3 {
   font-weight: 600;
   padding: 12px 0px 8px 0px;
 }
+input#PoliticaPrivacidade {
+  content: "";
+  font-size: 1.2em;
+  width: 1.2em;
+  height: 1.2em;
+}
+
 @media screen and (max-width: 768px) {
   body {
     background-image: none;
