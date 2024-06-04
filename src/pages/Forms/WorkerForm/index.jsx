@@ -9,9 +9,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import HeaderForm from "../../../components/HeaderForm";
 import Footer from "../../../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function WorkerForm() {
   const [isCheckListVisible, setCheckListVisible] = useState(false);
+  const navigate = useNavigate();
   //deixar visível a esteira de serviços
   const toggleCheckList = () => {
     setCheckListVisible(!isCheckListVisible);
@@ -94,7 +96,10 @@ export default function WorkerForm() {
       .matches(/[0-9]{11}/, "Formato de telefone inválido"),
     certificacoes: Yup.string(),
 
-    PoliticaPrivacidade: Yup.bool().oneOf([true], "Você precisa aceitar os termos e condições."),
+    PoliticaPrivacidade: Yup.bool().oneOf(
+      [true],
+      "Você precisa aceitar os termos e condições."
+    ),
   });
 
   const formik = useFormik({
@@ -133,6 +138,7 @@ export default function WorkerForm() {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
+      navigate("/trabalhe/confirmacao");
     },
   });
 
@@ -943,14 +949,14 @@ export default function WorkerForm() {
           >
             Termo de Privacidade
           </a>
-          <p>
-            
-          </p>
+          <p></p>
 
-          
           <div className="Termo-sim-nao">
-            <Label id="PoliticaPrivacidade" label="Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa." />
-          <input
+            <Label
+              id="PoliticaPrivacidade"
+              label="Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa."
+            />
+            <input
               id="PoliticaPrivacidade"
               {...register("PoliticaPrivacidade")}
               type="checkbox"
