@@ -4,7 +4,6 @@ import Logo from "../../assets/Logo Branca.png";
 function Footer() {
   return (
     <footer>
-
       <div className="footer">
         <picture className="logo-footer">
           <img src={Logo} alt="Logo Viverde Branca" />
