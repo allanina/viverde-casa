@@ -23,14 +23,15 @@ function Header() {
       >
         <div className="nav-texts">
           <a
-            href="https://www.youtube.com/watch?v=7J7kVF24IhA"
+            href="https://drive.google.com/file/d/1xuekRoaoZfaow8mXS37d71Znj57uG5op/view?usp=sharing"
             target="_blank"
             className="nav-text hover"
             rel="noreferrer"
           >
             Como funciona
           </a>
-          <a href="/contrate" className="nav-text hover">
+          <a href="https://drive.google.com/file/d/1Yksd8vicfYX2uD9KzNUK9NqcyJa5FrYw/view?usp=sharing" 
+          target="_blank" className="nav-text hover">
             Serviços
           </a>
         </div>
