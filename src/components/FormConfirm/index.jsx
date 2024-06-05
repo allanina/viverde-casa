@@ -1,4 +1,7 @@
 import "./styles.css";
+import clienteimg from "../../assets/Bem-vindo(a) Cliente.png"
+import empresaimg from "../../assets/Bem-vindo(a) Empresa.png"
+import prestadorimg from "../../assets/Aviso e-mail Prestador.png"
 
 function FormConfirm() {
 

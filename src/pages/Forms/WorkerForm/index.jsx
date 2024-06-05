@@ -72,12 +72,12 @@ export default function WorkerForm() {
       .max(14, "Número de caracteres inválido."),
     areaAtuacao: Yup.string().required("Resposta obrigatória."),
     servicos: Yup.array("Selecione, no mínimo, uma opção.")
-      .min(1)
+      .min(1, "Selecione, no mínimo, uma opção.")
       .of(Yup.string().required())
       .required("Selecione, no mínimo, uma opção."),
     horarios: Yup.array()
-      .min(1)
-      .of(Yup.string().required())
+      .min(1, "Selecione, no mínimo, uma opção.")
+      .of(Yup.string().required("Selecione, no mínimo, uma opção."))
       .required("Selecione, no mínimo, uma opção."),
     fimSemana: Yup.string().required("Selecione uma opção."),
     cartAssinada: Yup.string().required("Selecione uma opção."),
@@ -94,7 +94,7 @@ export default function WorkerForm() {
       .matches(/[0-9]{11}/, "Formato de telefone inválido"),
     certificacoes: Yup.string(),
 
-    PoliticaPrivacidade: Yup.string().required("Campo obrigatório"),
+    PoliticaPrivacidade: Yup.bool().oneOf([true], "Você precisa aceitar os termos e condições."),
   });
 
   const formik = useFormik({
@@ -128,7 +128,7 @@ export default function WorkerForm() {
       contato1: "",
       contato2: "",
       certificacoes: "",
-      PoliticaPrivacidade: "",
+      PoliticaPrivacidade: false,
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -209,6 +209,7 @@ export default function WorkerForm() {
               <input
                 type="tel"
                 id="telefone"
+                placeholder="(DDD) + número"
                 {...register("telefone")}
                 onChange={formik.handleChange}
                 value={formik.values.telefone}
@@ -725,9 +726,9 @@ export default function WorkerForm() {
                   onChange={formik.handleChange}
                 />
                 <LabelServ id="outros" label="Outros" />
-                <p className="error-message">{formik.errors.servicos}</p>
               </li>
             </ul>
+            <p className="error-message">{formik.errors.servicos}</p>
           </div>
         </section>
 
@@ -941,31 +942,21 @@ export default function WorkerForm() {
             target="_blank"
             rel="noreferrer"
           >
-            Termo de Privacidade
+            Termo de Uso
           </a>
           <p>
-            Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados
-            Pessoais (LGPD) e a Política de Privacidade da Viverde Casa.
+            
           </p>
 
+          
           <div className="Termo-sim-nao">
-            <input
-              id="TermoSim"
+            <Label id="PoliticaPrivacidade" label="Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa." />
+          <input
+              id="PoliticaPrivacidade"
               {...register("PoliticaPrivacidade")}
-              type="radio"
-              value="Sim"
+              type="checkbox"
               onChange={formik.handleChange}
             />
-            <LabelCheck id="TermoSim" label="Sim" />
-
-            <input
-              id="TermoNão"
-              {...register("PoliticaPrivacidade")}
-              type="radio"
-              value=" Não"
-              onChange={formik.handleChange}
-            />
-            <LabelCheck id="TermoNão" label="Não" />
             <p className="error-message">{formik.errors.PoliticaPrivacidade}</p>
           </div>
         </section>

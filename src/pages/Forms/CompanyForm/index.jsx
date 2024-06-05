@@ -105,7 +105,6 @@ export default function CompanyForm() {
             .email('Endereço Eletrônico Inválido.'),
         
         indicacao: Yup.string()
-            .required("Nome do cargo Obrigatório")
             .max(40, "quantidade máxima de caracteres atingida"),
         
         codigoIndicacao: Yup.string()
@@ -114,15 +113,16 @@ export default function CompanyForm() {
         
          // Informações da Solicitação
         
-        servicoInfo: Yup.string()
-        .required("Selecione uma opção"),
+        servicoInfo: Yup.array("Selecione, no mínimo, uma opção.")
+        .min(1, "Selecione, no mínimo, uma opção.").of(Yup.string().required("Selecione, no mínimo, uma opção."))
+        .required("Selecione, no mínimo, uma opção."),
         
         servicoOutro: Yup.string()
             .max(30, "Máximo de caracters excedido")
             .min(14, "Mínimo de caracters 14"),
         
-        iniciativaInfo: Yup.array("Selecione, no mínimo, uma opção.") //Mensagem de erro bugada
-        .min(1).of(Yup.string().required())
+        iniciativaInfo: Yup.array("Selecione, no mínimo, uma opção.")
+        .min(1, "Selecione, no mínimo, uma opção.").of(Yup.string().required("Selecione, no mínimo, uma opção."))
         .required("Selecione, no mínimo, uma opção."),
             
         
@@ -157,8 +157,7 @@ export default function CompanyForm() {
          PoliticaDiversidade: Yup.string()
             .required("Campo obrigatório"),
 
-        PoliticaPrivacidade: Yup.string()
-            .required("Campo obrigatório")
+        PoliticaPrivacidade: Yup.bool().oneOf([true], "Você precisa aceitar os termos e condições."),
 
         
         });
@@ -187,9 +186,9 @@ export default function CompanyForm() {
                 emailRepresentante: '', 
                 indicacao: '', 
                 codigoIndicacao: '', 
-                servicoInfo: '', 
+                servicoInfo: [], 
                 servicoOutro: '', 
-                iniciativaInfo: [], //Mensagem de erro bugada
+                iniciativaInfo: [], 
                 comentarioSolicitacao: '', 
                 CampanhasPoliticas: '', 
                 CargoPublico: '', 
@@ -200,14 +199,15 @@ export default function CompanyForm() {
                 ImpactoPositivo: '', 
                 ImpactoSocial: '', 
                 PoliticaDiversidade: '',
-                PoliticaPrivacidade:'',
+                PoliticaPrivacidade: false,
 
             },
+   
             onSubmit: values => {
                 alert(JSON.stringify(values, null, 2));
                 console.log(values)
             }
-        })
+});
     
     const { 
         register, 
@@ -237,7 +237,7 @@ export default function CompanyForm() {
 
                         <Label id="telefone-empresa" label="Telefone"/>
                         <p className='caracteres'>Apenas números</p>
-                        <input type="tel" id="telefone-empresa" {...register("telefoneEmpresa",)} onChange={formik.handleChange} value={formik.values.telefoneEmpresa} />
+                        <input type="tel" id="telefone-empresa" placeholder="(DDD) + número" {...register("telefoneEmpresa",)} onChange={formik.handleChange} value={formik.values.telefoneEmpresa} />
                         <p className="error-message">{formik.errors.telefoneEmpresa}</p>
                         
                     </div>
@@ -334,7 +334,7 @@ export default function CompanyForm() {
                     </div> 
                     <div className="right">              
                     <Label id="telefone-representante" label="Telefone"/>
-                        <input type="tel" id="telefone-representante" {...register("telefoneRepresentante")} onChange={formik.handleChange} value={formik.values.telefoneRepresentante} />
+                        <input type="tel" id="telefone-representante" placeholder="(DDD) + número" {...register("telefoneRepresentante")} onChange={formik.handleChange} value={formik.values.telefoneRepresentante} />
                         <p className="error-message">{formik.errors.telefoneRepresentante}</p>
                      
                     </div>
@@ -354,7 +354,7 @@ export default function CompanyForm() {
                     <div className="left">
                         <Label id="indicacao" label="Quem lhe indicou à Viverde Casa?" />
                         <input type="text" id="indicacao" {...register("indicacao")} onChange={formik.handleChange} value={formik.values.indicacao} />
-                        <p className="error-message">{formik.errors.indicacao}</p>
+                        
                         
                     </div>
                     <div className='right'>
@@ -375,19 +375,19 @@ export default function CompanyForm() {
                                 Selecione uma opção</span> 
                     <ul className="items">
                         <li>
-                            <input type="radio" id="parceria-comercial" value="Parceria comercial" {...register("servicoInfo")} onChange={formik.handleChange} />
+                            <input type="checkbox" id="parceria-comercial" value="Parceria comercial" {...register("servicoInfo")} onChange={formik.handleChange} />
                             <LabelServ id="parceria-comercial" label="Parceria comercial (Quero fazer parte do programa de descontos e conquistar novos clientes)" />
                         </li>
                         <li>
-                            <input type="radio" id="intermediacao" value="Intermediação" {...register("servicoInfo")} onChange={formik.handleChange} />
+                            <input type="checkbox" id="intermediacao" value="Intermediação" {...register("servicoInfo")} onChange={formik.handleChange} />
                             <LabelServ id="intermediacao" label="Intermediação de mão de obra (Busco contratação de mão de obra qualificada para reforma e construção)" />
                         </li>
                         <li>
-                            <input type="radio" id="qualificacao-profissional" value="Qualificação profissional" {...register("servicoInfo")} onChange={formik.handleChange} />
+                            <input type="checkbox" id="qualificacao-profissional" value="Qualificação profissional" {...register("servicoInfo")} onChange={formik.handleChange} />
                             <LabelServ id="qualificacao-profissional" label="Qualificação profissional (Quero contratar um pacote de qualificação de mão de obra para minha equipe) " />
                         </li>
                         <li>
-                            <input type="radio" id="apoio-acoes" value="Apoio a ações ESG" {...register("servicoInfo")} onChange={formik.handleChange} />
+                            <input type="checkbox" id="apoio-acoes" value="Apoio a ações ESG" {...register("servicoInfo")} onChange={formik.handleChange} />
                             <LabelServ id="apoio-acoes" label="Apoio a ações ESG (Quero investir em ações de impacto social e ambiental com a Viverde Casa) " />
                         </li>
                     </ul>
@@ -543,24 +543,18 @@ export default function CompanyForm() {
             <h1>Política de Privacidade</h1>
             <div className='box-line'></div>
             <a href="https://drive.google.com/drive/folders/1dR4AAgwrhY0Znqs-TDwCzoKYNDyU52Ip" target="_blank" rel="noreferrer">Política de Privacidade</a>
-            <a href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing" target="_blank" rel="noreferrer">Termo de Privacidade</a>
-            <p>
-                 Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa.
-            </p>
+            <a href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing" target="_blank" rel="noreferrer">Termo de Uso</a>
 
             <div className="Termo-sim-nao">
-                
-                        <input id="TermoSim" {...register("PoliticaPrivacidade")}
-                        type="radio" value="Sim" onChange={formik.handleChange} />
-                        <LabelCheck id="TermoSim" label="Sim"/>
-
-                        <input id="TermoNão" {...register("PoliticaPrivacidade")} 
-                        type="radio" value=" Não" onChange={formik.handleChange} />
-                        <LabelCheck id="TermoNão" label="Não"/>
-
-                        <p className="error-message">{formik.errors.PoliticaPrivacidade}</p>
-
-                    </div>
+            <Label id="PoliticaPrivacidade" label="Li e compreendi os Termos de Uso, a Lei Geral de Proteção de Dados Pessoais (LGPD) e a Política de Privacidade da Viverde Casa." />
+            <p className="error-message">{formik.errors.PoliticaPrivacidade}</p>
+          <input
+              id="PoliticaPrivacidade"
+              {...register("PoliticaPrivacidade")}
+              type="checkbox"
+              onChange={formik.handleChange}
+            />
+          </div>
 
         </section>
 

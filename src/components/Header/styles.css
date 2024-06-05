@@ -75,7 +75,7 @@ header {
   margin-right: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .logo-container {
     width: 100%;
     left: 0;
