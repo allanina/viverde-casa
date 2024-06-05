@@ -2,7 +2,6 @@ import "./styles.css";
 import Label from "../../../components/Label";
 import LabelServ from "../../../components/LabelServices";
 import LabelCheck from "../../../components/LabelCheck";
-import FormConfirm from "../../../components/FormConfirm";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useFormik } from "formik";
