@@ -1,23 +1,26 @@
-
-footer .footerContainer{
+footer .footerContainer {
   background-color: #008037;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.imgLogo{
+.imgLogo {
   max-width: 100%;
 }
-.emailSite p, strong{
+.emailSite p,
+strong {
   color: white;
   margin-top: 20px;
 }
-.redeSociaisIcon h3{
+.redeSociaisIcon h3 {
   color: white;
   text-align: center;
   margin-top: 20px;
 }
-.redeSociaisIcon .insta, .linkd, .youtube, .megafone{
+.redeSociaisIcon .insta,
+.linkd,
+.youtube,
+.megafone {
   padding-top: 3px;
   margin: 5px;
   width: 40px;
@@ -28,15 +31,12 @@ footer .footerContainer{
   background-color: #7fbc54;
   text-align: center;
 }
-.rodape p{
+.rodape p {
   color: #fdfdfd;
 }
-@media screen and (max-width: 800px){
-.footerContainer{
-  flex-wrap: wrap;
-  flex-direction: column;
-  
+@media screen and (max-width: 800px) {
+  .footerContainer {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 }
-}
-
-

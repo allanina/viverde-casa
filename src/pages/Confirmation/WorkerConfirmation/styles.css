@@ -1,0 +1,19 @@
+.worker-confirmation-container {
+  background-image: url("../../../assets/background-form.svg");
+  background-size: auto 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  color: #d55707;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-confirmation-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}

@@ -2,6 +2,7 @@ import "./styles.css";
 import Label from "../../../components/Label";
 import LabelServ from "../../../components/LabelServices";
 import LabelCheck from "../../../components/LabelCheck";
+import FormConfirm from "../../../components/FormConfirm";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useFormik } from "formik";
@@ -73,6 +74,9 @@ function ClientForm() {
       .min(1, "Selecione, no mínimo, uma opção.")
       .of(Yup.string().required("Selecione, no mínimo, uma opção."))
       .required("Selecione, no mínimo, uma opção."),
+    outro: Yup.string()
+      .min(2, "Número mínimo de 10 caracteres.")
+      .max(2500, "Número máximo de excedido caracteres."),
     textbox: Yup.string()
       .min(2, "Número mínimo de 10 caracteres.")
       .max(2500, "Número máximo de excedido caracteres."),
@@ -127,6 +131,7 @@ function ClientForm() {
       bairroObra: "",
       estadoObra: "",
       servicos: [],
+      outro: "",
       textbox: "",
       agendamento: [],
       agendamentoFimDeSemana: "",
@@ -191,6 +196,7 @@ function ClientForm() {
               <input
                 type="tel"
                 id="telefone"
+                placeholder="(DDD) + número"
                 {...register("telefone1")}
                 onChange={formik.handleChange}
                 value={formik.values.telefone1}
@@ -199,6 +205,7 @@ function ClientForm() {
               <input
                 type="tel"
                 id="telefone"
+                placeholder="(DDD) + número"
                 {...register("telefone2")}
                 onChange={formik.handleChange}
                 value={formik.values.telefone2}
@@ -725,20 +732,18 @@ function ClientForm() {
             <p className="error-message">{formik.errors.servicos}</p>
           </div>
 
-          <div id="servicos-detalhes">
-            <h3 className="pergunta-label">Outros: </h3>
-            <Label id="outros-servicos" />
-            <textarea
-              placeholder="Descreva qual serviço você deseja?"
-              id="textbox"
-              cols="30"
-              rows="10"
-              {...register("textbox")}
-              onChange={formik.handleChange}
-              value={formik.values.textbox}
-            />
-            <p className="error-message">{formik.errors.textbox}</p>
-          </div>
+          <h3 className="Outros">Outros:</h3>
+          <Label id="outro" />
+          <textarea
+            placeholder="Digite aqui...."
+            id="textbox"
+            cols="30"
+            rows="10"
+            {...register("outro")}
+            onChange={formik.handleChange}
+            value={formik.values.outro}
+          ></textarea>
+          <p className="error-message">{formik.errors.outro}</p>
 
           <br></br>
           <h3>Queremos entender exatamente qual é sua necessidade.</h3>
@@ -1090,7 +1095,7 @@ function ClientForm() {
             target="_blank"
             rel="noreferrer"
           >
-            Termo de Privacidade
+            Termo de Uso
           </a>
 
           <div className="Termo-sim-nao">

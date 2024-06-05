@@ -9,11 +9,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import HeaderForm from "../../../components/HeaderForm";
 import Footer from "../../../components/Footer";
-import { useNavigate } from "react-router-dom";
 
 export default function WorkerForm() {
   const [isCheckListVisible, setCheckListVisible] = useState(false);
-  const navigate = useNavigate();
   //deixar visível a esteira de serviços
   const toggleCheckList = () => {
     setCheckListVisible(!isCheckListVisible);
@@ -138,7 +136,6 @@ export default function WorkerForm() {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
-      navigate("/trabalhe/confirmacao");
     },
   });
 
@@ -215,6 +212,7 @@ export default function WorkerForm() {
               <input
                 type="tel"
                 id="telefone"
+                placeholder="(DDD) + número"
                 {...register("telefone")}
                 onChange={formik.handleChange}
                 value={formik.values.telefone}
@@ -947,7 +945,7 @@ export default function WorkerForm() {
             target="_blank"
             rel="noreferrer"
           >
-            Termo de Privacidade
+            Termo de Uso
           </a>
           <p></p>
 

@@ -1,12 +1,14 @@
 .box-confirmacao {
-  top: 165px;
-  left: 80px;
-  position: relative;
   width: 530px;
-  height: 236px;
   background-color: #ece8e8;
   border-radius: 77px;
   padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .bem-vindo {
@@ -14,6 +16,7 @@
   color: #008037;
   font-size: 34px;
   line-height: normal;
+  border-bottom: 4px solid #7fbc54;
 }
 
 .mensagem-confirmacao {

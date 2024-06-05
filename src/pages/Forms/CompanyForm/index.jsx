@@ -9,11 +9,9 @@ import Footer from "../../../components/Footer";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
 
 export default function CompanyForm() {
   const [isCheckListVisible, setCheckListVisible] = useState(false);
-  const navigate = useNavigate();
 
   const toggleCheckList = () => {
     setCheckListVisible(!isCheckListVisible);
@@ -193,7 +191,6 @@ export default function CompanyForm() {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
-      navigate("/parceria/confirmacao");
     },
   });
 
@@ -234,6 +231,7 @@ export default function CompanyForm() {
               <input
                 type="tel"
                 id="telefone-empresa"
+                placeholder="(DDD) + número"
                 {...register("telefoneEmpresa")}
                 onChange={formik.handleChange}
                 value={formik.values.telefoneEmpresa}
@@ -415,6 +413,7 @@ export default function CompanyForm() {
               <input
                 type="tel"
                 id="telefone-representante"
+                placeholder="(DDD) + número"
                 {...register("telefoneRepresentante")}
                 onChange={formik.handleChange}
                 value={formik.values.telefoneRepresentante}
@@ -847,7 +846,7 @@ export default function CompanyForm() {
             target="_blank"
             rel="noreferrer"
           >
-            Termo de Privacidade
+            Termo de Uso
           </a>
 
           <div className="Termo-sim-nao">

@@ -30,8 +30,12 @@ function Header() {
           >
             Como funciona
           </a>
-          <a href="https://drive.google.com/file/d/1Yksd8vicfYX2uD9KzNUK9NqcyJa5FrYw/view?usp=sharing" 
-          target="_blank" className="nav-text hover">
+          <a
+            href="https://drive.google.com/file/d/1Yksd8vicfYX2uD9KzNUK9NqcyJa5FrYw/view?usp=sharing"
+            target="_blank"
+            className="nav-text hover"
+            rel="noreferrer"
+          >
             Serviços
           </a>
         </div>

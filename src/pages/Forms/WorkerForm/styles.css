@@ -63,14 +63,6 @@ h1 {
   padding: 12px 0px 8px 0px;
 }
 
-.left-right {
-  width: 100%;
-  display: flex;
-}
-.left-right div {
-  width: 100%;
-}
-
 input[type="text"],
 input[type="date"],
 input[type="email"],
@@ -88,7 +80,7 @@ input[type="tel"] {
 }
 
 input[type="date"] {
-  width: 50%;
+  width: 40%;
 }
 input[type="number"],
 #estado {
