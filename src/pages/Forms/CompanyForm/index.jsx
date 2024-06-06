@@ -8,6 +8,7 @@ import { useState } from "react";
 import HeaderForm from "../../../components/HeaderForm";
 import Footer from "../../../components/Footer";
 import { useNavigate } from "react-router-dom";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -207,7 +208,7 @@ export default function CompanyForm() {
       }
       */
 
-      navigate("/contrate/confirmacao");
+      navigate("/parceria/confirmacao");
     },
   });
 

@@ -6,6 +6,7 @@ import LabelServ from "../../../components/LabelServices";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import HeaderForm from "../../../components/HeaderForm";
@@ -152,7 +153,6 @@ export default function WorkerForm() {
         console.error('Erro ao enviar os dados');
       }
       */
-
       navigate("/trabalhe/confirmacao");
     },
     
