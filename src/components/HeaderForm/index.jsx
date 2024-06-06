@@ -1,3 +1,4 @@
+import React from "react";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
 import Home from "../../pages/Home";

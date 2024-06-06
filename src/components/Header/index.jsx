@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 //componente de header/area de contrate/trabalhe
+import React from "react";
 import { useState } from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
@@ -25,16 +26,16 @@ function Header() {
           <a
             href="https://drive.google.com/file/d/1xuekRoaoZfaow8mXS37d71Znj57uG5op/view?usp=sharing"
             target="_blank"
+            rel="noopener noreferrer"
             className="nav-text hover"
-            rel="noreferrer"
           >
             Como funciona
           </a>
           <a
             href="https://drive.google.com/file/d/1Yksd8vicfYX2uD9KzNUK9NqcyJa5FrYw/view?usp=sharing"
             target="_blank"
+            rel="noopener noreferrer"
             className="nav-text hover"
-            rel="noreferrer"
           >
             Serviços
           </a>

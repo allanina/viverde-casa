@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react";
 import Slider from "react-slick";
 import "./styles.css";
 import "slick-carousel/slick/slick.css";

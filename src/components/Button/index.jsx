@@ -1,4 +1,5 @@
 //componente de botões
+import React from "react";
 import "./styles.css";
 
 //as props podem ser muito uteis para estilizar. por exemplo, temos como passar uma propriedade do tipo 'type' para o componente e usar isso como o className que estilizamos no css

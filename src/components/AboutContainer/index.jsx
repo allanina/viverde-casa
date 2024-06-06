@@ -1,4 +1,5 @@
 //componente de informações da viverde onde tem o video
+import React from "react";
 import "./styles.css";
 import FamilyPortrait from "../../assets/polaroid .png";
 

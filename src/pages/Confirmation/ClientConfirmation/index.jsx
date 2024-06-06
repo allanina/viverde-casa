@@ -7,10 +7,12 @@ function ClientConfirmation() {
   return (
     <div className="client-confirmation-container">
       <HeaderForm />
-      <FormConfirm
-        title="Bem-vindo(a) a nossa rede!"
-        message="Cadastro realizado com sucesso! Aguarde o nosso contato."
-      />
+      <div className="form-confirmation-container">
+        <FormConfirm
+          title="Bem-vindo(a) a nossa rede!"
+          message="Cadastro realizado com sucesso! Aguarde o nosso contato."
+        />
+      </div>
     </div>
   );
 }

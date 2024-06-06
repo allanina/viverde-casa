@@ -1,3 +1,4 @@
+import React from "react";
 import "./styles.css";
 import Logo from "../../assets/Logo Branca.png";
 import Insta from "../../assets/instagram-white.png";
@@ -28,7 +29,7 @@ function Footer() {
           <a
             href="https://www.instagram.com/viverdecasa/"
             target="_blank"
-            rel="Instagram noreferrer"
+            rel="noopener noreferrer"
           >
             {" "}
             <img className="insta" src={Insta} alt="" />{" "}
@@ -36,7 +37,7 @@ function Footer() {
           <a
             href="https://www.linkedin.com/company/viverde-casa/"
             target="_blank"
-            rel="LinkedIn noreferrer"
+            rel="noopener noreferrer"
           >
             {" "}
             <img className="linkd" src={LinkedIn} alt="" />{" "}
@@ -44,7 +45,7 @@ function Footer() {
           <a
             href="https://medium.com/@viverdecasa"
             target="_blank"
-            rel="Megafone noreferrer"
+            rel="noopener noreferrer"
           >
             {" "}
             <img className="megafone" src={megafone} alt="" />{" "}
@@ -52,7 +53,7 @@ function Footer() {
           <a
             href="https://www.youtube.com/@viverdecasa7207"
             target="_blank"
-            rel="YouTube noreferrer"
+            rel="noopener noreferrer"
           >
             {" "}
             <img className="youtube" src={youtube} alt="" />{" "}

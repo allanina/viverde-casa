@@ -1,3 +1,4 @@
+import React from "react";
 import "./styles.css";
 
 function FormConfirm({ title, asset, message }) {

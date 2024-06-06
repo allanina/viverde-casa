@@ -1,3 +1,4 @@
+import React from "react";
 import "./style.css";
 import Label from "../../../components/Label";
 import LabelCheck from "../../../components/LabelCheck";
@@ -837,14 +838,14 @@ export default function CompanyForm() {
           <a
             href="https://drive.google.com/drive/folders/1dR4AAgwrhY0Znqs-TDwCzoKYNDyU52Ip"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Política de Privacidade
           </a>
           <a
             href="https://drive.google.com/file/d/1jIJbR4bSmUH-CG-tEnTdYBD9uDFR2Sof/view?usp=sharing"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Termo de Uso
           </a>
