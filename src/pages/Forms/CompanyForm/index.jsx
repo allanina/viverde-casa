@@ -7,12 +7,14 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import HeaderForm from "../../../components/HeaderForm";
 import Footer from "../../../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 export default function CompanyForm() {
   const [isCheckListVisible, setCheckListVisible] = useState(false);
+  const navigate = useNavigate();
 
   const toggleCheckList = () => {
     setCheckListVisible(!isCheckListVisible);
@@ -192,6 +194,7 @@ export default function CompanyForm() {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       console.log(values);
+      navigate("/parceria/confirmacao");
     },
   });
 
