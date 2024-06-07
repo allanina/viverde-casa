@@ -142,9 +142,9 @@ function ClientForm() {
       PoliticaPrivacidade: false,
     },
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      const response = await fetch('https://api.sheetmonkey.io/form/ozAJCj4Yf34rMzjZPDfGtE', {
 
-      const response = fetch('https://api.sheetmonkey.io/form/ozAJCj4Yf34rMzjZPDfGtE', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,6 +162,7 @@ function ClientForm() {
 
       navigate("/contrate/confirmacao");
     },
+    
   });
 
   const { register } = useForm({});

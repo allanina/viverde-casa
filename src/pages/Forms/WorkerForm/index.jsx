@@ -6,7 +6,6 @@ import LabelServ from "../../../components/LabelServices";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import HeaderForm from "../../../components/HeaderForm";
@@ -137,8 +136,9 @@ export default function WorkerForm() {
       certificacoes: "",
       PoliticaPrivacidade: false,
     },
-    onSubmit: (values) => {
-      const response = fetch('https://api.sheetmonkey.io/form/upp8JQh6qPRFGvYDfDCuwQ', {
+    onSubmit: async (values) => {
+      const response = await fetch('https://api.sheetmonkey.io/form/upp8JQh6qPRFGvYDfDCuwQ', {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
