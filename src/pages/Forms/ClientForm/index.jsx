@@ -142,11 +142,26 @@ function ClientForm() {
       PoliticaPrivacidade: false,
     },
 
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      console.log(values);
+    onSubmit: async (values) => {
+      const response = await fetch('https://api.sheetmonkey.io/form/ozAJCj4Yf34rMzjZPDfGtE', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values), 
+      });
+
+      /* utilizar dps com o backend
+      if (response.ok) {
+        console.log('Dados enviados com sucesso!');
+      } else {
+        console.error('Erro ao enviar os dados');
+      }
+      */
+
       navigate("/contrate/confirmacao");
     },
+    
   });
 
   const { register } = useForm({});
@@ -840,6 +855,7 @@ function ClientForm() {
                   type="checkbox"
                   id="srvc-urgente"
                   placeholder="data-servico"
+                  value="srvc-urgente"
                   {...register("dataServico")}
                   onChange={formik.handleChange}
                 />
@@ -851,6 +867,7 @@ function ClientForm() {
                   type="checkbox"
                   id="srvc-proxsem"
                   placeholder="data-servico"
+                  value="srvc-proxsem"
                   {...register("dataServico")}
                   onChange={formik.handleChange}
                 />
@@ -862,6 +879,7 @@ function ClientForm() {
                   type="checkbox"
                   id="srvc-mes"
                   placeholder="data-servico"
+                  value="srvc-mes"
                   {...register("dataServico")}
                   onChange={formik.handleChange}
                 />
@@ -873,6 +891,7 @@ function ClientForm() {
                   type="checkbox"
                   id="srvc-seismeses"
                   placeholder="data-servico"
+                  value="srvc-seismeses"
                   {...register("dataServico")}
                   onChange={formik.handleChange}
                 />
@@ -987,6 +1006,7 @@ function ClientForm() {
                   type="checkbox"
                   id="indic-amigos"
                   placeholder="indicacao"
+                  value="indic-amigos"
                   {...register("indicacao")}
                   onChange={formik.handleChange}
                 />
@@ -998,6 +1018,7 @@ function ClientForm() {
                   type="checkbox"
                   id="indic-projsocparceiro"
                   placeholder="indicacao"
+                  value="indic-projsocparceiro"
                   {...register("indicacao")}
                   onChange={formik.handleChange}
                 />
@@ -1012,6 +1033,7 @@ function ClientForm() {
                   type="checkbox"
                   id="indic-profparc"
                   placeholder="indicacao"
+                  value="indic-profparc"
                   {...register("indicacao")}
                   onChange={formik.handleChange}
                 />
@@ -1023,6 +1045,7 @@ function ClientForm() {
                   type="checkbox"
                   id="indic-estabelecimento"
                   placeholder="indicacao"
+                  value="indic-estabelecimento"
                   {...register("indicacao")}
                   onChange={formik.handleChange}
                 />
@@ -1037,6 +1060,7 @@ function ClientForm() {
                   type="checkbox"
                   id="indic-insta"
                   placeholder="indicacao"
+                  value="indic-insta"
                   {...register("indicacao")}
                   onChange={formik.handleChange}
                 />
@@ -1047,6 +1071,7 @@ function ClientForm() {
                 <input
                   type="checkbox"
                   id="indic-face"
+                  value="indic-face"
                   placeholder="indicacao"
                   {...register("indicacao")}
                   onChange={formik.handleChange}
@@ -1058,6 +1083,7 @@ function ClientForm() {
                 <input
                   type="checkbox"
                   id="indic-outro"
+                  value="indic-outro"
                   placeholder="indicacao"
                   {...register("indicacao")}
                   onChange={formik.handleChange}

@@ -5,7 +5,7 @@ import LabelCheck from "../../../components/LabelCheck";
 import LabelServ from "../../../components/LabelServices";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import HeaderForm from "../../../components/HeaderForm";
@@ -13,6 +13,8 @@ import Footer from "../../../components/Footer";
 
 export default function WorkerForm() {
   const [isCheckListVisible, setCheckListVisible] = useState(false);
+  const navigate = useNavigate();
+  
   //deixar visível a esteira de serviços
   const toggleCheckList = () => {
     setCheckListVisible(!isCheckListVisible);
@@ -134,10 +136,26 @@ export default function WorkerForm() {
       certificacoes: "",
       PoliticaPrivacidade: false,
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      console.log(values);
+    onSubmit: async (values) => {
+      const response = await fetch('https://api.sheetmonkey.io/form/upp8JQh6qPRFGvYDfDCuwQ', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values), 
+      });
+
+      /* utilizar dps com o backend
+      if (response.ok) {
+        console.log('Dados enviados com sucesso!');
+      } else {
+        console.error('Erro ao enviar os dados');
+      }
+      */
+
+      navigate("/trabalhe/confirmacao");
     },
+    
   });
 
   const { register } = useForm({});
