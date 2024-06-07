@@ -14,13 +14,13 @@ import { useNavigate } from "react-router-dom";
 export default function CompanyForm() {
   const [isCheckListVisible, setCheckListVisible] = useState(false);
   const navigate = useNavigate();
+
   //deixa visivel a checkbox
+
 
   const toggleCheckList = () => {  
    setCheckListVisible(!isCheckListVisible);
   };
-
-  
 
   //validationSchema: schema//
   const companySchema = Yup.object().shape({
@@ -233,6 +233,7 @@ export default function CompanyForm() {
 return ( 
   <main id="company-form">
     <HeaderForm />
+
 
       <form id="form-container" onSubmit={formik.handleSubmit}>
           <section className='dadosEmpresa'>

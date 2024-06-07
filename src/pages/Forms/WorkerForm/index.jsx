@@ -138,6 +138,7 @@ export default function WorkerForm() {
     },
     onSubmit: async (values) => {
       const response = await fetch('https://api.sheetmonkey.io/form/upp8JQh6qPRFGvYDfDCuwQ', {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +153,6 @@ export default function WorkerForm() {
         console.error('Erro ao enviar os dados');
       }
       */
-
       navigate("/trabalhe/confirmacao");
     },
     
